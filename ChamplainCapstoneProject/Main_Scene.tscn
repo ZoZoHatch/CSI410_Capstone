@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b643j7iiqw3gw"]
+
+[ext_resource type="PackedScene" uid="uid://b3b7j3ser34xq" path="res://Mission_Control.tscn" id="1_opmtb"]
+
+[node name="Main_Scene" type="Node2D"]
+
+[node name="Mission_Control" parent="." instance=ExtResource("1_opmtb")]

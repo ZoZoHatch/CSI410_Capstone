@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dis8x2npkij4q"]
+
+[ext_resource type="Script" path="res://Resources/Component_Base/Component.cs" id="1_lc5rf"]
+[ext_resource type="PackedScene" uid="uid://c01t3b6ocaobt" path="res://Resources/File_Reader/File_Reader.tscn" id="2_ibri3"]
+[ext_resource type="PackedScene" uid="uid://ro4yxcg2l1f1" path="res://Resources/Component_Base/Energy_Resource/Energy_Resource.tscn" id="3_ks7gd"]
+
+[node name="Component" type="Node2D"]
+script = ExtResource("1_lc5rf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="File_Reader" parent="." instance=ExtResource("2_ibri3")]
+
+[node name="Energy_Resource" parent="." instance=ExtResource("3_ks7gd")]

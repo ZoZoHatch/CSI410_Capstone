@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci2qoam8s0q7d"]
+
+[ext_resource type="PackedScene" uid="uid://dis8x2npkij4q" path="res://Resources/Component_Base/Component.tscn" id="1_2lnbc"]
+[ext_resource type="Script" path="res://Main_Scene/Rover/Chasis/Chasis.cs" id="2_5fmf4"]
+
+[node name="Chasis" instance=ExtResource("1_2lnbc")]
+script = ExtResource("2_5fmf4")

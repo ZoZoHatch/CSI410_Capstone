@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c01t3b6ocaobt"]
+
+[ext_resource type="Script" path="res://Resources/File_Reader/File_Reader.cs" id="1_fgd3o"]
+
+[node name="FileReader" type="Node"]
+script = ExtResource("1_fgd3o")

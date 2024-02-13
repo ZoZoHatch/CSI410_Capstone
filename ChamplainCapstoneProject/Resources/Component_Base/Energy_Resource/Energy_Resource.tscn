@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ro4yxcg2l1f1"]
+
+[ext_resource type="Script" path="res://Resources/Component_Base/Energy_Resource/Energy_Resource.cs" id="1_v85av"]
+
+[node name="Energy_Resource" type="Node"]
+script = ExtResource("1_v85av")

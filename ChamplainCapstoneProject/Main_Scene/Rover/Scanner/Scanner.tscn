@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5mkhmnmpkf7k"]
+
+[ext_resource type="PackedScene" uid="uid://dis8x2npkij4q" path="res://Resources/Component_Base/Component.tscn" id="1_rkp5r"]
+[ext_resource type="Script" path="res://Main_Scene/Rover/Scanner/Scanner.cs" id="2_ewtg5"]
+
+[node name="Scanner" instance=ExtResource("1_rkp5r")]
+script = ExtResource("2_ewtg5")

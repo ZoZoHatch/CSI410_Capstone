@@ -1,0 +1,25 @@
+[Name]
+Global Position System
+ 
+[Description]
+The GPS component tracks the location and direction
+of the Rover in the world.
+ 
+[Functionality]
+GPS only takes one number a time, and discards any extra numbers
+ 
+1 -> Print Rover location to terminal
+2 -> Print Rover direction to terminal
+3 -> Print both location and direction
+4 -> Toggle automatically printing location
+    when the rover moves
+5 -> Toggle automatically printing direction
+    when the rover turns
+6-> Toggle printing only when the rover is finished moving
+7 -> Toggle printing to the console
+	(GPS will still update the Mini-Map)	
+ 
+9 -> Print the configuration of the GPS
+ 
+The GPS's precision is determined by how much power it has.
+    More power == More precision

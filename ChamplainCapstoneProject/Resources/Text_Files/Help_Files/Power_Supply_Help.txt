@@ -1,0 +1,18 @@
+[Name]
+Power_Supply
+ 
+[Description]
+The Power_Supply component controls how much energy is
+allocated to the other components
+ 
+[Functionality]
+Power_Supply processes commands in two(2) digit chunks.
+ 
+The first(1) digit is the address of the component whose
+energy is being adjusted.
+ 
+The second(2) digit is the desired energy level for said
+component.
+ 
+Power_Supply can handle multiple two(2) digit chunks in
+ a single command.

@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://cintc6xxgdg0u"]
+
+[ext_resource type="Theme" uid="uid://qb3ul57eboe6" path="res://GUI_Theme/UI_Theme.tres" id="1_s61kg"]
+[ext_resource type="Script" path="res://Main_Scene/Power_Levels/Component_Power_Meter/Power_Meter.cs" id="2_i3s16"]
+[ext_resource type="StyleBox" uid="uid://c0lj73anmo7io" path="res://GUI_Theme/UI_StyleBox_Flat_No_Fill.tres" id="3_qmld0"]
+
+[node name="Power_Meter" type="VBoxContainer"]
+offset_right = 44.0
+offset_bottom = 160.0
+theme = ExtResource("1_s61kg")
+script = ExtResource("2_i3s16")
+
+[node name="ProgressBar_PanelContainter" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ProgressBar_PanelContainter"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressBar_PanelContainter/MarginContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 10
+fill_mode = 3
+show_percentage = false
+
+[node name="ProgressBar_Min" type="ProgressBar" parent="ProgressBar_PanelContainter/MarginContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_styles/background = ExtResource("3_qmld0")
+fill_mode = 3
+show_percentage = false
+
+[node name="Label_PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Label_PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = -4
+
+[node name="Label" type="Label" parent="Label_PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "PWR"
+visible_characters = 3
+
+[node name="Animation_Timer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true

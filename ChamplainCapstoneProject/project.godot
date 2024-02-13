@@ -11,13 +11,28 @@ config_version=5
 [application]
 
 config/name="ChamplainCapstoneProject"
-run/main_scene="res://Mission_Control.tscn"
-config/features=PackedStringArray("4.1", "C#")
+run/main_scene="res://Main_Scene/Main_Scene.tscn"
+config/features=PackedStringArray("4.2", "C#")
 config/icon="res://icon.png"
 
 [dotnet]
 
 project/assembly_name="ChamplainCapstoneProject"
+
+[file_customization]
+
+folder_colors={
+"res://GUI_Theme/": "green",
+"res://Main_Scene/": "blue",
+"res://Main_Scene/Key_Pad/": "green",
+"res://Main_Scene/Mini_Map/": "green",
+"res://Main_Scene/Mini_Map/Rover_Marker/": "blue",
+"res://Main_Scene/Output_Terminal/": "green",
+"res://Main_Scene/Power_Levels/": "green",
+"res://Main_Scene/Rover/GPS/Compass/": "gray",
+"res://Resources/": "gray",
+"res://Resources/Text_Files/": "yellow"
+}
 
 [gui]
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmpbahgtcv80t"]
+
+[ext_resource type="Script" path="res://Main_Scene/Mini_Map/Rover_Marker/Rover_Marker.cs" id="1_vnydl"]
+
+[node name="Rover_Marker" type="Polygon2D"]
+polygon = PackedVector2Array(16, 0, -16, 12, -8, 0, -16, -12)
+script = ExtResource("1_vnydl")

@@ -1,0 +1,16 @@
+[Name]
+Processor
+ 
+[Description]
+The Processor component takes input from the Number Pad 
+and passes commands to the relevant component.
+ 
+[Functionality]
+Processor takes commands in the format: 0|0000000
+ 
+The NUMBER left of | is the address of the component
+	being commanded.
+The characters right of | is the command for that component.
+ 
+If the Processor has 0 energy it will not be able to pass
+commands to components and the Rover will not function.

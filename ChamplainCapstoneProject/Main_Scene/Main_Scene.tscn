@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0ob7w6mt1rtg"]
+
+[ext_resource type="PackedScene" uid="uid://b1c6lkmw5gk0k" path="res://Main_Scene/Key_Pad/Key_Pad.tscn" id="1_28fv0"]
+[ext_resource type="PackedScene" uid="uid://5piirwdidlja" path="res://Main_Scene/Output_Terminal/Output_Terminal.tscn" id="2_m1nl2"]
+[ext_resource type="PackedScene" uid="uid://cw7okiy0f4kbt" path="res://Main_Scene/Power_Levels/Power_Levels.tscn" id="3_bxbm8"]
+[ext_resource type="PackedScene" uid="uid://cewbi8u7fqu3w" path="res://Main_Scene/Rover/Rover.tscn" id="3_qwaee"]
+[ext_resource type="PackedScene" uid="uid://brnkeavpn5m4c" path="res://Main_Scene/Mini_Map/Mini_Map.tscn" id="5_r7vxo"]
+
+[node name="Main_Scene" type="Node2D"]
+
+[node name="Key_Pad" parent="." instance=ExtResource("1_28fv0")]
+unique_name_in_owner = true
+offset_left = 911.0
+offset_top = 388.0
+offset_right = 911.0
+offset_bottom = 388.0
+
+[node name="Output_Terminal" parent="." instance=ExtResource("2_m1nl2")]
+unique_name_in_owner = true
+offset_left = 5.0
+offset_top = 285.0
+offset_right = 5.0
+offset_bottom = 285.0
+
+[node name="Power_Levels" parent="." instance=ExtResource("3_bxbm8")]
+offset_left = 3.0
+offset_top = 35.0
+offset_right = 3.0
+offset_bottom = 35.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Mini_Map" parent="." instance=ExtResource("5_r7vxo")]
+unique_name_in_owner = true
+offset_left = 875.0
+offset_top = 9.0
+offset_right = 875.0
+offset_bottom = 9.0
+
+[node name="World" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Rover" parent="World" instance=ExtResource("3_qwaee")]
+unique_name_in_owner = true
+z_index = -1

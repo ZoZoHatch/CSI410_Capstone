@@ -1,0 +1,1 @@
+A help file for the generic component

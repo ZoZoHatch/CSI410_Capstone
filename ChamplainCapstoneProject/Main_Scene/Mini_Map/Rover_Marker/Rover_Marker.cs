@@ -6,19 +6,45 @@ public partial class Rover_Marker : Polygon2D
 {	
 	private enum Enum_Radii
 	{
-		LEVEL_1 = 1,
-		LEVEL_2 = 10,
-		LEVEL_3 = 100
+		LEVEL_1 = 10,
+		LEVEL_2 = 125,
+		LEVEL_3 = 200
 	}
 
+	private Timer tmr;
+
+	// vars for animating a scan	
+	private int int_Rotation_Direction = 0;
+	private float flt_Scan_Angle = 0;
+	private Vector2 vec2_Draw_Dir;
+	private float flt_Anim_Speed = 0;
+	private int int_Anim_Size = 0;
+
+
+	// vars for gps precision
 	private float flt_Precision_Radius = (float)Enum_Radii.LEVEL_3;
 	private int int_Num_Points = 16;
+	private int int_Line_Width = 8;
+
 
 	public override void _Ready()
 	{
+		tmr = GetNode<Timer>("Timer");
 		Subscribe_To_Events();
 	}
 	// end _Ready()
+
+	public override void _PhysicsProcess(double delta)
+	{
+		base._PhysicsProcess(delta);
+		
+		if (!tmr.IsStopped())
+		{			
+			flt_Scan_Angle += flt_Anim_Speed * int_Rotation_Direction * (float)delta;
+			vec2_Draw_Dir = new Vector2(MathF.Cos(flt_Scan_Angle), MathF.Sin(flt_Scan_Angle)) * int_Anim_Size;
+			QueueRedraw();
+		}
+	}
 
 	public override void _Draw()
 	{
@@ -28,15 +54,26 @@ public partial class Rover_Marker : Polygon2D
 			flt_Precision_Radius, 
 			0.0f, MathF.Tau, 
 			int_Num_Points, 
-			Color);		
+			Color,
+			int_Line_Width);		
+
+		if (!tmr.IsStopped())
+		{
+			DrawLine(Vector2.Zero, vec2_Draw_Dir, Color, int_Line_Width);
+		}		
 	}
 	// end _Draw()
 
 	private void Subscribe_To_Events()
 	{
-		GPS g = GetOwner<Mini_Map>().GetParent().GetNode<Rover>("%Rover").GetNode<GPS>("GPS");
+		GPS g = GetOwner<Mini_Map>().GetParent().GetNode<Rover_View>("%Rover_View").Get_Rover().GetNode<GPS>("GPS");
 		g.GPSDirectionUpdated += (string dir, Vector2 vec) => Set_Direction(vec);
 		g.GPSLocationUpdated += (string loc, int pre, Vector2 loc_vec) => Set_Location(loc_vec, pre);
+
+		Scanner s = GetOwner<Mini_Map>().GetParent().GetNode<Rover_View>("%Rover_View").Get_Rover().GetNode<Scanner>("Scanner");
+		s.ScanStarted += (float dur, int dir, int rang) => Animate_Scan(dur, dir, rang);
+
+		tmr.Timeout += () => QueueRedraw();
 	}
 	// end Subscribe_To_Events()
 	
@@ -68,7 +105,18 @@ public partial class Rover_Marker : Polygon2D
 				break;
 		}
 		
-		QueueRedraw();	// redraw to change radius
+		QueueRedraw();	// redraw to change radius and locatation
 	}
 	// end Set_Location
+
+	private void Animate_Scan(float dur, int dir, int range)
+	{
+		int_Anim_Size = range;
+		flt_Anim_Speed = Mathf.Tau / dur;
+		int_Rotation_Direction = dir;
+		flt_Scan_Angle = Rotation;
+
+		tmr.Start(dur);
+	}
+	// end Animate_Scan()
 }

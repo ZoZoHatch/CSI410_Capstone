@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3pxgddyn3m7m"]
+
+[ext_resource type="Script" path="res://Main_Scene/Rover_View/World/Rover/Arm/Arm.cs" id="2_5qvde"]
+[ext_resource type="PackedScene" uid="uid://c01t3b6ocaobt" path="res://Resources/File_Reader/File_Reader.tscn" id="2_j4dcp"]
+[ext_resource type="PackedScene" uid="uid://ro4yxcg2l1f1" path="res://Resources/Component_Base/Energy_Resource/Energy_Resource.tscn" id="3_mvgs0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y0t3"]
+size = Vector2(4, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1d0r"]
+size = Vector2(4, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdklr"]
+size = Vector2(4, 4)
+
+[node name="Arm" type="Node2D"]
+script = ExtResource("2_5qvde")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="File_Reader" parent="." instance=ExtResource("2_j4dcp")]
+
+[node name="Energy_Resource" parent="." instance=ExtResource("3_mvgs0")]
+
+[node name="Rover_Joint" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="UpperArm_CollisionShape2D" type="CollisionShape2D" parent="Rover_Joint"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_5y0t3")
+
+[node name="Polygon2D" type="Polygon2D" parent="Rover_Joint/UpperArm_CollisionShape2D"]
+polygon = PackedVector2Array(-2, 14, 2, 14, 2, -12, -2, -12)
+
+[node name="Center_Joint" type="RigidBody2D" parent="Rover_Joint"]
+unique_name_in_owner = true
+position = Vector2(0, -22)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="ForeArm_CollisionShape2D" type="CollisionShape2D" parent="Rover_Joint/Center_Joint"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_c1d0r")
+
+[node name="Polygon2D" type="Polygon2D" parent="Rover_Joint/Center_Joint/ForeArm_CollisionShape2D"]
+polygon = PackedVector2Array(-2, 14, 2, 14, 2, -12, -2, -12)
+
+[node name="Collector_Joint" type="RigidBody2D" parent="Rover_Joint/Center_Joint"]
+unique_name_in_owner = true
+position = Vector2(0, 22)
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rover_Joint/Center_Joint/Collector_Joint"]
+shape = SubResource("RectangleShape2D_rdklr")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Collector_Anchor" type="Node2D" parent="Rover_Joint/Center_Joint/Collector_Joint"]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true

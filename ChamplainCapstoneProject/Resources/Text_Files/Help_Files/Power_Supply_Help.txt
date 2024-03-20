@@ -3,7 +3,7 @@ Power_Supply
  
 [Description]
 The Power_Supply component controls how much energy is
-allocated to the other components
+allocated to the other components.
  
 [Functionality]
 Power_Supply processes commands in two(2) digit chunks.

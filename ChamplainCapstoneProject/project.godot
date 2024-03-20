@@ -27,9 +27,12 @@ folder_colors={
 "res://Main_Scene/Key_Pad/": "green",
 "res://Main_Scene/Mini_Map/": "green",
 "res://Main_Scene/Mini_Map/Rover_Marker/": "blue",
+"res://Main_Scene/Mini_Map/Scanner_Marker/": "blue",
 "res://Main_Scene/Output_Terminal/": "green",
 "res://Main_Scene/Power_Levels/": "green",
-"res://Main_Scene/Rover/GPS/Compass/": "gray",
+"res://Main_Scene/Rover_View/": "green",
+"res://Main_Scene/Rover_View/World/": "blue",
+"res://Main_Scene/Rover_View/World/Rover/GPS/Compass/": "gray",
 "res://Resources/": "gray",
 "res://Resources/Text_Files/": "yellow"
 }
@@ -44,8 +47,20 @@ project/assembly_name="ChamplainCapstoneProject"
 
 [physics]
 
+2d/solver/default_constraint_bias=0.6
 common/enable_pause_aware_picking=true
 
 [rendering]
 
 environment/defaults/default_environment="res://default_env.tres"
+
+[shader_globals]
+
+World_Color={
+"type": "color",
+"value": Color(0, 0.686275, 0, 1)
+}
+World_Color_BG={
+"type": "color",
+"value": Color(0.101961, 0.101961, 0.101961, 1)
+}

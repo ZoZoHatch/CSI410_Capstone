@@ -1,0 +1,22 @@
+[Name]
+Scanner
+ 
+[Description]
+The Scanner component reveals the environment around the Rover's location.
+ 
+[Functionality]
+Scanner takes commands one(1) character at a time and discards any other numbers.
+ 
+0 -> Print the current configuration. 
+1 -> Scan the environment around the Rover.
+2 -> Scan the Rover itself.
+    This updates the Rover preview to show the orientation of the Rover 
+    at the time of the scan.
+ 
+3 -> Toggle automatically scanning when the Rover moves.
+4 -> Toggle automatically scanning the Rover when the arm moves.
+ 
+Each scan environment scan takes 5 seconds to make.
+The Scanner scans in the counter clockwise direction.
+ 
+Increasing the Scanner's energy increases the detail of each scan.

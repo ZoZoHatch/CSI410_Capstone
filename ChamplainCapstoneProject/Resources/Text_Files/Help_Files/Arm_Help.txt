@@ -1,0 +1,32 @@
+[Name]
+Arm
+ 
+[Description]
+The Arm component is used for positioning the Collector component
+for sample collection.
+ 
+[Functionality]
+Arm processes commands in one(1) character chunks.
+ 
+Controls for Collector joint:
+7 -> rotate counter-clockwise
+8 -> get joints current angle
+9 -> rotate clockwise
+ 
+Controls for center joint:
+4 -> rotate counter-clockwise
+5 -> get joints current angle
+6 -> rotate clockwise
+ 
+Controls for Rover joint:
+1 -> rotate counter-clockwise
+2 -> get joints current angle
+3 -> rotate clockwise
+ 
+Commands are added to a queue and processed sequentially.
+ 
+Arm has a high minimum power requirement, but
+once that requirement is met it works optimally.
+ 
+Arm doesn't benifit from increasing the power
+beyond the minimum.

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5mkhmnmpkf7k"]
+
+[ext_resource type="PackedScene" uid="uid://dis8x2npkij4q" path="res://Resources/Component_Base/Component.tscn" id="1_uxkxr"]
+[ext_resource type="Script" path="res://Main_Scene/Rover_View/World/Rover/Scanner/Scanner.cs" id="2_aal07"]
+
+[node name="Scanner" instance=ExtResource("1_uxkxr")]
+script = ExtResource("2_aal07")
+
+[node name="Timer" type="Timer" parent="." index="3"]
+process_callback = 0
+one_shot = true

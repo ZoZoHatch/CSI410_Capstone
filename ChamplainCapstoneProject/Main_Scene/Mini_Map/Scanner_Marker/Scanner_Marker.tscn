@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://7sy1xwuqg0vo"]
+
+[ext_resource type="Script" path="res://Main_Scene/Mini_Map/Scanner_Marker/Scanner_Marker.cs" id="1_ayf1m"]
+
+[node name="Scanner_Marker" type="Polygon2D"]
+color = Color(0, 0.686275, 0, 1)
+polygon = PackedVector2Array(4, 4, 4, -4, -4, -4, -4, 4)
+script = ExtResource("1_ayf1m")

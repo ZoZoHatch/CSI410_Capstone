@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfn8adrci3vte"]
+
+[ext_resource type="PackedScene" uid="uid://cewbi8u7fqu3w" path="res://Main_Scene/Rover_View/World/Rover/Rover.tscn" id="1_ta5cl"]
+[ext_resource type="PackedScene" uid="uid://bwkkusf6st3au" path="res://Main_Scene/Rover_View/World/World_Objects/Obstacle.tscn" id="2_5e8n6"]
+
+[node name="World" type="Node2D"]
+
+[node name="Rover" parent="." instance=ExtResource("1_ta5cl")]
+unique_name_in_owner = true
+z_index = -1
+
+[node name="Obstacle" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(179, 147)
+
+[node name="CollisionPolygon2D" parent="Obstacle" index="0"]
+position = Vector2(28, -165)
+polygon = PackedVector2Array(-71, -39, 47, -161, 68, 94, -152, 170)
+
+[node name="Obstacle2" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(350, 186)
+
+[node name="CollisionPolygon2D" parent="Obstacle2" index="0"]
+position = Vector2(-480, -133)
+scale = Vector2(0.901786, 1)
+polygon = PackedVector2Array(-71, -103, 45, -206, 36, -27, 113, 84, 98, 136, -76, 105)
+
+[editable path="Obstacle"]
+[editable path="Obstacle2"]

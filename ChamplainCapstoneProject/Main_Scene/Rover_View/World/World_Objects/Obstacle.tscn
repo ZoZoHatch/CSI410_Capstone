@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwkkusf6st3au"]
+
+[ext_resource type="Shader" path="res://Main_Scene/Rover_View/World/World_Objects/Obstacle.gdshader" id="1_8xjh3"]
+[ext_resource type="Script" path="res://Main_Scene/Rover_View/World/World_Objects/Match_CollisionPolygon2D.cs" id="1_33wyv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oj6r2"]
+shader = ExtResource("1_8xjh3")
+
+[node name="Obstacle" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, -28)
+polygon = PackedVector2Array(-130, -55, 82, -140, 119, 143, -85, 154)
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionPolygon2D"]
+material = SubResource("ShaderMaterial_oj6r2")
+use_parent_material = true
+script = ExtResource("1_33wyv")

@@ -31,6 +31,11 @@ public partial class Energy_Resource : Node
 
 	public void Adjust_Energy(int new_available_energy)
 	{
+		if(int_Allocated_Energy == 0 && new_available_energy > 0)
+		{	// If the component is being turned on, it becomes functional
+			GetParent<Component>().Set_Component_As_Functional();
+		}
+
 		int_Allocated_Energy = new_available_energy;
 
 		EmitSignal(SignalName.EnergyAdjusted, GetParent().GetIndex(), int_Allocated_Energy);

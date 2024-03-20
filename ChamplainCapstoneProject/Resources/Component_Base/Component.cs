@@ -13,7 +13,13 @@ public partial class Component : Node2D
 	protected char chr_Deliniator;	
 		// This char is used to deliniate between the base Process_Command() and overidden Process_Command()
 			// if command string starts with chr_Deliniator, use the base Process_Command()
-	
+
+	protected bool bl_Is_Functional = false;	
+
+	private float flt_Chance_To_Fail = 0.25f;	// the chance for the component to fail when it
+	// processes a command while overloaded
+	// in the range (0,1)
+	// represents a percent chance so 0.25f is a 25% chance to fail
 
 	[Signal]
 	public delegate void CommandProcessedEventHandler(string sender, string command);
@@ -26,6 +32,7 @@ public partial class Component : Node2D
 	
 	[Signal]
 	public delegate void ComponentEncounteredProblemEventHandler(string sender, string problem);
+
 	
 	public override void _Ready()
 	{
@@ -53,12 +60,31 @@ public partial class Component : Node2D
 			return true;
 		}
 
+		if(!bl_Is_Functional)
+		{
+			EmitSignal(SignalName.ComponentEncounteredProblem, str_Sender,
+			$"{Name} is currently non-functional:\n\tDe-allocate all power and re-allocate to regain functionality");
+			return true;			
+		}
+
 		if(!nrg_Power.Has_Enough_Power())
 		{
 			throw new Rover_ComponentException(new Message_Struct(
 				Message_Struct.Enum_Message_Types.WARNING,
 				str_Sender,
 				$"{Name} doesn't have enough power to process command: {command}"));							
+		}
+
+		if(nrg_Power.Is_Overcharged())
+		{	
+			if(flt_Chance_To_Fail > GD.Randf())
+			{	// GD.randf() returns a float between 0 and 1, if it's less than the threshold it's a fail
+				bl_Is_Functional = false;
+				throw new Rover_ComponentException(new Message_Struct(
+					Message_Struct.Enum_Message_Types.EMERGENCY,
+					str_Sender,
+					$"{Name} has become non-functional from recieving too much power."));
+			}			
 		}
 
 		if(command[0] != chr_Deliniator)
@@ -69,7 +95,13 @@ public partial class Component : Node2D
 		EmitSignal(SignalName.CommandProcessed, str_Sender, command);
 		return true;		
 	}
-	// end Process_Command()	
+	// end Process_Command()
+
+	public void Set_Component_As_Functional()
+	{
+		bl_Is_Functional = true;
+	}
+	// end Set_Component_As_Functional()
 
 	protected virtual void Subscribe_To_Events()
 	{

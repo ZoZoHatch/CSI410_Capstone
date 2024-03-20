@@ -7,13 +7,18 @@ The Motor component moves the Rover through the world.
 [Functionality]
 Motor processes commands in one(1) character chunks.
  
-8 -> forward    2 -> backward
-4 -> turn left  6 -> trun right
-7 -> fwd left   1 -> bck left
-9 -> fwd right  3 -> bck right
- 
+              forward
+     fwd left    |    fwd right
+             \   |   /
+              7  8  9
+ turn left--- 4     6 ---turn right
+              1  2  3
+             /   |   \
+    bck left     |     bck right
+              backward
+
 ./5 -> break/wait
  
 Commands are added to a queue and processed sequentially.
  
-Allocating more power to the rover increases the speed at which it moves
+Allocating more power to the rover increases the speed at which it moves.

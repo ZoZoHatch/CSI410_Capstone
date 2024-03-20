@@ -1,0 +1,41 @@
+[gd_scene load_steps=11 format=3 uid="uid://cewbi8u7fqu3w"]
+
+[ext_resource type="PackedScene" uid="uid://ci2qoam8s0q7d" path="res://Main_Scene/Rover_View/World/Rover/Chasis/Chasis.tscn" id="1_5tdv8"]
+[ext_resource type="Script" path="res://Main_Scene/Rover_View/World/Rover/Rover.cs" id="1_ho770"]
+[ext_resource type="PackedScene" uid="uid://fi02t4ijwdlv" path="res://Main_Scene/Rover_View/World/Rover/Processor/Processor.tscn" id="1_q4aqe"]
+[ext_resource type="PackedScene" uid="uid://b2ukre4us0xo3" path="res://Main_Scene/Rover_View/World/Rover/Power_Supply/Power_Supply.tscn" id="3_u5m8m"]
+[ext_resource type="PackedScene" uid="uid://be18n0odmhyk0" path="res://Main_Scene/Rover_View/World/Rover/Motor/Motor.tscn" id="4_ejajl"]
+[ext_resource type="PackedScene" uid="uid://c3pxgddyn3m7m" path="res://Main_Scene/Rover_View/World/Rover/Arm/Arm.tscn" id="5_kswh6"]
+[ext_resource type="PackedScene" uid="uid://ds1ubeb2v5d8a" path="res://Main_Scene/Rover_View/World/Rover/GPS/GPS.tscn" id="5_ygo3o"]
+[ext_resource type="PackedScene" uid="uid://b5mkhmnmpkf7k" path="res://Main_Scene/Rover_View/World/Rover/Scanner/Scanner.tscn" id="6_qym3m"]
+[ext_resource type="PackedScene" uid="uid://bfmikxnp63v2f" path="res://Main_Scene/Rover_View/World/Rover/Collector/Collector.tscn" id="8_2komy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo8ee"]
+size = Vector2(48, 32)
+
+[node name="Rover" type="CharacterBody2D"]
+script = ExtResource("1_ho770")
+
+[node name="Power_Supply" parent="." instance=ExtResource("3_u5m8m")]
+
+[node name="Processor" parent="." instance=ExtResource("1_q4aqe")]
+unique_name_in_owner = true
+
+[node name="Motor" parent="." instance=ExtResource("4_ejajl")]
+
+[node name="Arm" parent="." instance=ExtResource("5_kswh6")]
+position = Vector2(23, 11)
+
+[node name="GPS" parent="." instance=ExtResource("5_ygo3o")]
+
+[node name="Scanner" parent="." instance=ExtResource("6_qym3m")]
+
+[node name="Collector" parent="." instance=ExtResource("8_2komy")]
+
+[node name="Chasis" parent="." instance=ExtResource("1_5tdv8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lo8ee")
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D"]
+polygon = PackedVector2Array(24, 16, 24, -16, -24, -16, -24, 16)

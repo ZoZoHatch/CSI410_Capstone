@@ -43,10 +43,12 @@ render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="PanelContainer/VBoxContainer/MarginContainer/PanelContainer/SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
-zoom = Vector2(0.2, 0.2)
+zoom = Vector2(0.25, 0.25)
 script = ExtResource("3_iijcm")
 
 [node name="Rover_Marker" parent="PanelContainer/VBoxContainer/MarginContainer/PanelContainer/SubViewportContainer/SubViewport/Camera2D" instance=ExtResource("3_0gjqt")]
+unique_name_in_owner = true
+color = Color(0, 0.686275, 0, 1)
 
 [node name="Lable_HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2

@@ -8,10 +8,13 @@ public partial class Power_Levels : Control
 {
 	private PackedScene scn_Meter = GD.Load<PackedScene>("res://Main_Scene/Power_Levels/Component_Power_Meter/Power_Meter.tscn");
 	private HBoxContainer hbc_Container;
+	private Rover rvr;
 
 	public override void _Ready()
 	{
 		hbc_Container = GetNode<HBoxContainer>("PanelContainer/MarginContainer/HBoxContainer");
+
+		rvr = GetNode<Rover_View>("%Rover_View").Get_Rover();
 
 		Subscribe_To_Events();
 	}
@@ -19,7 +22,7 @@ public partial class Power_Levels : Control
 
 	private void Subscribe_To_Events()
 	{
-		GetNode<Rover>("%Rover").Ready += () => Initialize_Power_Meters();
+		rvr.Ready += () => Initialize_Power_Meters();
 	}
 	// end Subscribe_To_Events()	
 
@@ -34,7 +37,7 @@ public partial class Power_Levels : Control
 
 	private void Initialize_Power_Meters()
 	{
-		foreach (Node child in GetNode<Rover>("%Rover").GetChildren())
+		foreach (Node child in rvr.GetChildren())
 		{
 			Component cmpnt = child as Component;
 			if(cmpnt != null)

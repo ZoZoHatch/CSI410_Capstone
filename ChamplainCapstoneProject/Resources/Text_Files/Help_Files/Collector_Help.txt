@@ -1,0 +1,23 @@
+[Name]
+Collector
+ 
+[Description]
+The Collector component is used to take samples from the environment.
+
+[Functionality]
+Collector only takes one number a time, and discards any extra numbers.
+
+0 -> Print the current configuration.
+1 -> Check distance from surface.
+2 -> Check alignent with surface.
+3 -> Toggle automatically printing when 
+        the Collector is within the proper distance.
+4 -> Toggle automatically printing when
+        the Collector is proper alignent with a surface.
+5 -> Take a sample.
+
+Inorder for the Collector to sucessfully take a sample it:
+    *Must be within 10 degrees of being perpendicular with the surface.
+    *Must be no further than .05 units from the surface.
+ 
+The Collector can messure distances up to 1 unit.

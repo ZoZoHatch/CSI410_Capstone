@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfmikxnp63v2f"]
+
+[ext_resource type="PackedScene" uid="uid://dis8x2npkij4q" path="res://Resources/Component_Base/Component.tscn" id="1_j278a"]
+[ext_resource type="Script" path="res://Main_Scene/Rover_View/World/Rover/Collector/Collector.cs" id="2_nstn4"]
+
+[node name="Collector" instance=ExtResource("1_j278a")]
+script = ExtResource("2_nstn4")
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="3"]
+polygon = PackedVector2Array(8, -3, 7, -2, 5, -1, 5, 1, 7, 2, 8, 3, 6, 4, 0, 4, -3, 2, -3, -2, 0, -4, 6, -4)

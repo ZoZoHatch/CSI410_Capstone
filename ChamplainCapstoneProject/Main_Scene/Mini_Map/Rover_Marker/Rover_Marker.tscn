@@ -3,5 +3,8 @@
 [ext_resource type="Script" path="res://Main_Scene/Mini_Map/Rover_Marker/Rover_Marker.cs" id="1_vnydl"]
 
 [node name="Rover_Marker" type="Polygon2D"]
-polygon = PackedVector2Array(16, 0, -16, 12, -8, 0, -16, -12)
+polygon = PackedVector2Array(32, 0, -32, 24, -16, 0, -32, -24)
 script = ExtResource("1_vnydl")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

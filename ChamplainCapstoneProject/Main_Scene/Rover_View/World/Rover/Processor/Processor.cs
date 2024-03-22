@@ -7,7 +7,6 @@ using System.Linq;
 public partial class Processor : Component
 {
 	private List<Component> lst_Rover_Components = new List<Component>();
-
 	
 	public override void _Ready()
 	{
@@ -23,7 +22,7 @@ public partial class Processor : Component
 		}
 
 		// Intialize nrg_Power.int_Max_Energy
-		nrg_Power.Init_Max_Energy(8); 
+		nrg_Power.Init_Max_Energy(1); 
 
 		// Set nrg_Power.int_Min_Energy
 		nrg_Power.Set_Min_Energy(1);			
@@ -39,8 +38,13 @@ public partial class Processor : Component
 			return true;	// Return true if command was handled by base component
 		}
 
-		EmitSignal(SignalName.CommandNotRecognized, str_Sender, command);
-		return false;	// Command not processed
+		// If the processor gets ant command print a list of 
+		// components and their address
+
+		Print_Component_List();
+
+		EmitSignal(SignalName.CommandProcessed, str_Sender, command);
+		return true;	// Command processed
 	}	
 	// end Process_Command()
 
@@ -50,14 +54,7 @@ public partial class Processor : Component
 	}
 	// end Subscribe_To_Events()
 
-	protected override void Load_Config_File()
-	{
-
-	}
-	// end Load_Config_File()
-	
-
-	public void Process_Key_Pad_Input(string address, string command)
+	public void Process_Command(string address, string command)
 	{
 		int int_Address = address.ToInt();
 		
@@ -90,5 +87,16 @@ public partial class Processor : Component
 		}	
 						
 	}
-	// end Process_Key_Pad_Input()	
+	// end Process_Key_Pad_Input()
+	
+	private void Print_Component_List()
+	{
+		string list = "[Num]|[Name]\n";
+		foreach (Component c in lst_Rover_Components)
+		{
+			list = $"{list}{c.GetIndex()}|{c.Name}\n";
+		}
+		GetParent<Rover>().Send_Message(str_Sender, list);
+	}
+	// end Print_Component_List()
 }

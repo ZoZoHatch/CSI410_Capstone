@@ -155,7 +155,8 @@ public partial class Power_Supply : Component
 	// and only after Parent Rover is Ready
 	private async void Pre_Allocate_Energy()
 	{ 
-		await ToSignal(GetParent<Rover>(), Node.SignalName.Ready);
+		await ToSignal(GetNode("/root/Main_Scene")
+			, Node.SignalName.Ready);
 		
 		GetParent<Rover>().Send_Message(str_Sender, "Allocating mimimum power levels");
 

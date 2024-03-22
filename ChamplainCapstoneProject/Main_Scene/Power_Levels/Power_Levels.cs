@@ -12,7 +12,7 @@ public partial class Power_Levels : Control
 
 	public override void _Ready()
 	{
-		hbc_Container = GetNode<HBoxContainer>("PanelContainer/MarginContainer/HBoxContainer");
+		hbc_Container = GetNode<HBoxContainer>("MarginContainer/HBoxContainer");
 
 		rvr = GetNode<Rover_View>("%Rover_View").Get_Rover();
 

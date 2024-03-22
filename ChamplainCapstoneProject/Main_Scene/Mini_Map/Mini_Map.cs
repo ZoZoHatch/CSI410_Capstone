@@ -21,9 +21,9 @@ public partial class Mini_Map : Control
 		cam = GetNode<Camera2D>("%Camera2D");		
 
 		lbl_Location = GetNode<Label>(
-			"PanelContainer/VBoxContainer/Lable_HBoxContainer/Location_MarginContainer/Location_PanelContainer/Location_Label");
+			"VBoxContainer/Lable_HBoxContainer/Location_MarginContainer/Location_PanelContainer/Location_Label");
 		lbl_Direction = GetNode<Label>(
-			"PanelContainer/VBoxContainer/Lable_HBoxContainer/Direction_MarginContainer/Direction_PanelContainer/Direction_Label");
+			"VBoxContainer/Lable_HBoxContainer/Direction_MarginContainer/Direction_PanelContainer/Direction_Label");
 				
 		rvr_Mark = GetNode<Rover_Marker>("%Rover_Marker");
 

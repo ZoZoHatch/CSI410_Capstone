@@ -129,20 +129,15 @@ keycode = 4194436
 [sub_resource type="Shortcut" id="Shortcut_5bc02"]
 events = [SubResource("InputEventKey_6sjsm"), SubResource("InputEventKey_3ewv5")]
 
-[node name="Key_Pad" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 1.0
-offset_bottom = 1.0
+[node name="Key_Pad" type="AspectRatioContainer"]
+offset_right = 152.0
+offset_bottom = 196.0
 theme = ExtResource("1_4rtqv")
 script = ExtResource("1_1ulhg")
 
 [node name="Key_Pad_Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 152.0
-offset_bottom = 196.0
+custom_minimum_size = Vector2(152, 196)
+layout_mode = 2
 
 [node name="Label_PanelContainer" type="PanelContainer" parent="Key_Pad_Panel"]
 layout_mode = 2

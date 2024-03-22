@@ -27,7 +27,7 @@ public partial class Output_Terminal : Control
 	public override void _Ready()
 	{
 		// Instantiate rtl_Output
-		NodePath nodePath = (NodePath)"PanelContainer/MarginContainer/RichTextLabel";
+		NodePath nodePath = (NodePath)"%RichTextLabel";
 		rtl_Output = GetNode<RichTextLabel>(nodePath);
 		rtl_Output.VisibleCharacters = 0;
 

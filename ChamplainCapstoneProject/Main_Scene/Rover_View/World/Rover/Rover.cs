@@ -9,18 +9,16 @@ public partial class Rover : CharacterBody2D
 	//	It's child nodes need to be sorted so that 
 	//	Component nodes are the fist to be indexed
 	// IMPORTANT
-	*/
+	*/	
 	
-	private Output_Terminal tml;
+	private Rover_View rv;
 
-	private bool bl_Is_Functional = true;
+	public bool bl_Is_Functional = true;
 	
 	public override void _Ready()
 	{	
-		// Initialize tml_Terminal
-		var UI = GetOwner<Node>().GetOwner<Node>().GetOwner<Node>();
-
-		tml = UI.GetNode<Output_Terminal>("%Output_Terminal");		
+		// Initialize rv
+		rv = GetOwner<Node>().GetOwner<Rover_View>();
 
 		Subscribe_To_Events();
 	}
@@ -28,12 +26,9 @@ public partial class Rover : CharacterBody2D
 
 	private void Subscribe_To_Events()
 	{
-		// Subscribe to Key_Pad output to get commands for the rover
-		var UI = GetOwner<Node>().GetOwner<Node>().GetOwner<Node>();
-		UI.GetNode<Key_Pad>("%Key_Pad").KeyPadReturnedFormated += (string adr, string cmd)
-			=> Send_Command_To_Processor(adr,cmd);
-
-		// Subscribe to component events	// Events from componnets get passed through the Rover before going the Output_Terminal
+		// Subscribe to component events	
+		// Events from componnets get passed through the Rover before going to Rover_View and than
+		// Output_Terminal
 		foreach(Node child in GetChildren())	
 		{
 			if(child as Component != null)	// Only include nodes that are or inherit from Component class
@@ -67,40 +62,9 @@ public partial class Rover : CharacterBody2D
 	}
 	// end Subscribe_To_Events()
 	
-	private void Send_Command_To_Processor(string adr, string cmd)
-	{
-		if(!int.TryParse(adr, out _))
-		{
-			Send_Message_To_Output_Terminal(new Message_Struct(
-				Message_Struct.Enum_Message_Types.ERROR,
-				Name,
-				"Please start your input with a number."));
-			return;
-		}
-
-		if(!bl_Is_Functional)
-		{
-			Send_Message_To_Output_Terminal(new Message_Struct(
-				Message_Struct.Enum_Message_Types.ERROR,
-				Name,
-				"The Rover has become non-functional and cannot continue."));
-			return;
-		}
-
-		try
-		{
-			GetNode<Processor>("%Processor").Process_Key_Pad_Input(adr, cmd);
-		}
-		catch(Component.Rover_ComponentException e)
-		{
-			Send_Message_To_Output_Terminal(e.msg_Message);
-		}
-	}
-	// end Send_Command_To_Processor()
-
 	private void Send_Message_To_Output_Terminal(Message_Struct message)
 	{
-		tml.Print_Message(message);
+		rv.Print_Message(message);
 	}	
 	// end Send_Message_To_Output_Terminal
 
@@ -127,7 +91,7 @@ public partial class Rover : CharacterBody2D
 	public void Print_Help_File(string filename)
 	{
 		Send_Message_To_Output_Terminal(new Message_Struct(Message_Struct.Enum_Message_Types.INFORAMTION, Name, $"Printing {filename}"));
-		tml.Print_File(filename, File_Reader.Enum_File_Types.HELP);
+		rv.Print_Help_File(filename);
 	}	
 	// end Print_Help_File()
 

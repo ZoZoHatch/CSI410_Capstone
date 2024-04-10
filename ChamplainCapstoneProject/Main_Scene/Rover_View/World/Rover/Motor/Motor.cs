@@ -43,7 +43,7 @@ public partial class Motor : Component
 		tmr = GetNode<Timer>("Timer");
 
 		// Intialize nrg_Power.int_Max_Energy
-		nrg_Power.Init_Max_Energy(8); 
+		nrg_Power.Init_Max_Energy(5); 
 
 		// Set nrg_Power.int_Min_Energy
 		nrg_Power.Set_Min_Energy(1);		
@@ -142,12 +142,14 @@ public partial class Motor : Component
 			return;	// No Commands left to process, so halt and return						
 		}
 
-		float flt_Move_Dist = 10.0f;	// the distance that the rover moves for each forward/backward command // in world units
+		// the distance that the rover moves for each forward/backward command // in world units
+		float flt_Move_Dist = 10.0f * nrg_Power.int_Allocated_Energy;	
+
 		float flt_Turn_Dist = 45.0f * (MathF.PI / 180.0f);	// the amount that the rover turns for each right/left command 
 		// first num is in degrees, is than converted to radians
 
 		
-		float flt_Move_And_Turn_Time = 	Get_Move_Duration();
+		float flt_Move_And_Turn_Time = 1.0f;
 		tmr.Start(flt_Move_And_Turn_Time);	
 
 		int int_Move_Dir;
@@ -248,6 +250,8 @@ public partial class Motor : Component
 	// end Clamp_Rotation
 
 	// Helper function to calculate the time each movement command takes
+	// Depricated in favor of simpler system that scales the move distance
+	// and keeps the duration constant.
 	private float Get_Move_Duration()
 	{
 		int int_Power_Difference = nrg_Power.int_Max_Energy - nrg_Power.int_Allocated_Energy; 

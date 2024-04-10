@@ -14,7 +14,7 @@ public partial class Component : Node2D
 		// This char is used to deliniate between the base Process_Command() and overidden Process_Command()
 			// if command string starts with chr_Deliniator, use the base Process_Command()
 
-	protected bool bl_Is_Functional = false;	
+	protected bool bl_Is_Functional = true;	
 
 	private float flt_Chance_To_Fail = 0.25f;	// the chance for the component to fail when it
 	// processes a command while overloaded
@@ -63,7 +63,7 @@ public partial class Component : Node2D
 		if(!bl_Is_Functional)
 		{
 			EmitSignal(SignalName.ComponentEncounteredProblem, str_Sender,
-			$"{Name} is currently non-functional:\n\tDe-allocate all power and re-allocate to regain functionality");
+			$"{Name} is currently non-functional:\n    De-allocate all power and re-allocate to regain functionality");
 			return true;			
 		}
 
@@ -91,6 +91,8 @@ public partial class Component : Node2D
 		{
 			return false;
 		}
+
+		Print_Help_File();
 		
 		EmitSignal(SignalName.CommandProcessed, str_Sender, command);
 		return true;		

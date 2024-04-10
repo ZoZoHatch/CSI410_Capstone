@@ -1,0 +1,66 @@
+ _____                   _             _      
+|_   _|__ _ __ _ __ ___ (_)_ __   __ _| |     
+  | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | |     
+  | |  __/ |  | | | | | | | | | | (_| | |     
+  |_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|____ 
+                                       |_____|
+                         ____                     
+                        |  _ \ _____   _____ _ __ 
+                        | |_) / _ \ \ / / _ \ '__|
+                        |  _ < (_) \ V /  __/ |   
+                        |_| \_\___/ \_/ \___|_| 
+a game by Lorenzo "Zo" Zimmerer
+ 
+~~~ Game Direction ~~~
+Lorenzo "Zo" Zimmerer
+ 
+~~~ Design ~~~
+Lorenzo "Zo" Zimmerer
+ 
+~~~ Programming ~~~
+Lorenzo "Zo" Zimmerer
+ 
+~~~ System Engineering ~~~
+Lorenzo "Zo" Zimmerer
+ 
+~~~ Art Direction ~~~
+Lorenzo "Zo" Zimmerer
+ 
+~~~ Technical Art ~~~
+Lorenzo "Zo" Zimmerer
+ 
+~~~ UI Design ~~~
+Lorenzo "Zo" Zimmerer
+ 
+~~~ Audio Design ~~~
+n/a
+ 
+~~~ Font ~~~
+The Ultimate Oldschool PC Font Pack 
+IBM VGA
+< http://int10h.org/oldschool-pc-fonts/ >
+< http://creativecommons.org/licenses/by-sa/4.0/ >
+ 
+~~~ Ascii Art ~~~
+Ascii-Art-Generator.org
+< https://www.ascii-art-generator.org/ >
+ 
+~~~ Play Testers ~~~
+Scott Barret
+Sarah Jorgenson
+ 
+~~~ Special Thanks ~~~
+Charles Conlan
+	-> Pitching the idea of limiting the player's input to
+		just the number pad.
+ 
+Dr. Wei Chen
+	-> Tolorating my chaotic development process.
+	
+RosaLea Hearthstone
+	-> My amazing and wonderful partner <3
+ 
+~~~ <3 Thank You for Playing <3 ~~~
+ 
+ 
+ 

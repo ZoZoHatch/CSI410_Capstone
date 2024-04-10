@@ -7,14 +7,14 @@ public partial class Rover_Marker : Polygon2D
 	private enum Enum_Radii
 	{
 		LEVEL_1 = 10,
-		LEVEL_2 = 125,
+		LEVEL_2 = 100,
 		LEVEL_3 = 200
 	}
 
 	private Timer tmr;
 
 	// vars for animating a scan	
-	private int int_Rotation_Direction = 0;
+	private int int_Anim_Direction = 0;
 	private float flt_Scan_Angle = 0;
 	private Vector2 vec2_Draw_Dir;
 	private float flt_Anim_Speed = 0;
@@ -39,9 +39,11 @@ public partial class Rover_Marker : Polygon2D
 		base._PhysicsProcess(delta);
 		
 		if (!tmr.IsStopped())
-		{			
-			flt_Scan_Angle += flt_Anim_Speed * int_Rotation_Direction * (float)delta;
-			vec2_Draw_Dir = new Vector2(MathF.Cos(flt_Scan_Angle), MathF.Sin(flt_Scan_Angle)) * int_Anim_Size;
+		{
+			flt_Scan_Angle += flt_Anim_Speed * int_Anim_Direction * (float)delta;
+			vec2_Draw_Dir = new Vector2(Mathf.Cos(flt_Scan_Angle), 
+										Mathf.Sin(flt_Scan_Angle));			
+			vec2_Draw_Dir *= int_Anim_Size;
 			QueueRedraw();
 		}
 	}
@@ -79,7 +81,7 @@ public partial class Rover_Marker : Polygon2D
 	
 	private void Set_Direction(Vector2 direction)
 	{
-		Rotation = direction.Angle();
+		Rotation = direction.Angle();		
 	}
 	// end Set_Direction()
 
@@ -113,9 +115,9 @@ public partial class Rover_Marker : Polygon2D
 	{
 		int_Anim_Size = range;
 		flt_Anim_Speed = Mathf.Tau / dur;
-		int_Rotation_Direction = dir;
+		int_Anim_Direction = dir;
 		flt_Scan_Angle = Rotation;
-
+		
 		tmr.Start(dur);
 	}
 	// end Animate_Scan()

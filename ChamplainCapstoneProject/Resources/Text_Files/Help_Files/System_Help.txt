@@ -1,0 +1,16 @@
+[Terminal_Rover_Help]
+ 
+Commands use the format:
+[Address] | [Command]
+The Address corrosponds to the specific Component that
+the Command gets sent to.
+ 
+A brief list of commands for accessing system files
+useing the Address '.'
+ 
+0 -> Print Welcome Screen
+1 -> Print a Map of the IU
+2 -> Print an overview of objectives
+3 -> Print objective progress
+4 -> Print credits
+ 

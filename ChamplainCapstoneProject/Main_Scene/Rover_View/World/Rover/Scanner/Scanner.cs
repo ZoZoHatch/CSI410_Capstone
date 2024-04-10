@@ -60,7 +60,11 @@ public partial class Scanner : Component
 		tmr.Timeout += () => Stop_Scanning();
 
 		Motor mtr = GetParent<Rover>().GetNode<Motor>("Motor");
-		mtr.MovementFinished += () => Auto_Scan_Environment(); 
+		mtr.MovementFinished += () => Auto_Scan_Environment();
+		mtr.MovementCommandFinished += () => Auto_Scan_Rover(bl_Run_Auto_Scan_On_Move);
+
+		Arm arm = GetParent<Rover>().GetNode<Arm>("Arm");
+		arm.ArmMoved += () => Auto_Scan_Rover(bl_Auto_Scan_Rover_On_Arm);
 	}
 	// end Subscribe_To_Events()
 
@@ -98,7 +102,7 @@ public partial class Scanner : Component
 		// 	at the time of the scan
 		//
 		// 3 -> Toggle automatically scanning when the Rover moves. 
-		// 4 -> Toggle automatically scanning the Rover when the arm moves	
+		// 4 -> Toggle automatically scanning the Rover when a component changes position
 		//
 		// Each scan environment scan takes 5 seconds to make.
 		// The Scanner scans in the counter clockwise direction.
@@ -127,10 +131,14 @@ public partial class Scanner : Component
 
 			case '3':
 				bl_Run_Auto_Scan_On_Move = !bl_Run_Auto_Scan_On_Move;
+				GetParent<Rover>().Send_Message(str_Sender,
+					$"Auto scan on move now set to: {bl_Run_Auto_Scan_On_Move}");
 				break;
 
 			case '4':
 				bl_Auto_Scan_Rover_On_Arm = !bl_Auto_Scan_Rover_On_Arm;
+				GetParent<Rover>().Send_Message(str_Sender,
+					$"Auto scan when components move now set to: {bl_Auto_Scan_Rover_On_Arm}");
 				break;			
 
 			default:
@@ -145,6 +153,7 @@ public partial class Scanner : Component
 	
 	private void Scan_Rover()
 	{
+		GetParent<Rover>().Send_Message(str_Sender, "Scanning the Rover");
 		EmitSignal(SignalName.RoverScanned);
 	}
 	// end Scan_Rover()
@@ -213,14 +222,18 @@ public partial class Scanner : Component
 
 	private void Auto_Scan_Environment()
 	{
-		if(bl_Run_Auto_Scan_On_Move) { Start_Scanning(); }
+		if(bl_Run_Auto_Scan_On_Move 
+			&& bl_Is_Functional && nrg_Power.Has_Enough_Power()) 
+		{ Start_Scanning(); }
 	}
 	// end Auto_Scan_Environment()
 
-	private void Auto_Scan_Rover()
+	private void Auto_Scan_Rover(bool scan_enabled)
 	{
-		if(bl_Auto_Scan_Rover_On_Arm) { Scan_Rover(); }
+		if((scan_enabled)
+			&& bl_Is_Functional && nrg_Power.Has_Enough_Power()) 
+		{ Scan_Rover(); }
 	}
-	// end Auto_Scan_Rover()
+	// end Auto_Scan_Rover()	
 }
 

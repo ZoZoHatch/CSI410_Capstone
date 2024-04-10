@@ -1,0 +1,27 @@
+ 
+Welcome to ... 
+ _____                   _             _      
+|_   _|__ _ __ _ __ ___ (_)_ __   __ _| |     
+  | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | |     
+  | |  __/ |  | | | | | | | | | | (_| | |     
+  |_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|____ 
+                                       |_____|
+                         ____                     
+                        |  _ \ _____   _____ _ __ 
+                        | |_) / _ \ \ / / _ \ '__|
+                        |  _ < (_) \ V /  __/ |   
+                        |_| \_\___/ \_/ \___|_|   
+                                 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+This game is played entirely with a numpad
+*If your machine doesn't have a numpad please:*
+    -> Use the on screen numpad via a mouse.
+    -> Use the the number keys across the top of the keyboard.
+ 
+This game DOES NOT include any audio.
+    -> Feel free to listen to the audio of your choice.
+ 
+Use the '.' key to access System files.
+Use numbers to access Components on the Rover.
+ 

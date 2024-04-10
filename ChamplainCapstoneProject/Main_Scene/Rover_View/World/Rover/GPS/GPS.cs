@@ -215,21 +215,29 @@ public partial class GPS : Component
 	private void Toggle_Print_On_Turn()
 	{
 		bl_Auto_Print_On_Turn = !bl_Auto_Print_On_Turn;
+		GetParent<Rover>().Send_Message(str_Sender,
+			$"Automatically update direction now set to: {bl_Auto_Print_On_Turn}");
 	}
 
 	private void Toggle_Print_On_Move()
 	{
 		bl_Auto_Print_On_Move = !bl_Auto_Print_On_Move;
+		GetParent<Rover>().Send_Message(str_Sender,
+			$"Automatically update position now set to: {bl_Auto_Print_On_Move}");
 	}
 
 	private void Toggle_Print_On_Move_Finished()
 	{
 		bl_Auto_Print_On_Movement_Finished = !bl_Auto_Print_On_Movement_Finished;
+		GetParent<Rover>().Send_Message(str_Sender,
+			$"Automatically update position at the end of movement now set to: {bl_Auto_Print_On_Movement_Finished}");
 	}
 
 	private void Toggle_Print_To_Console()
 	{
 		bl_Print_to_Console = !bl_Print_to_Console;
+		GetParent<Rover>().Send_Message(str_Sender,
+			$"Printing to the console now set to: {bl_Print_to_Console}\nGPS will still update the Map");
 	}
 	// end helper functions
 

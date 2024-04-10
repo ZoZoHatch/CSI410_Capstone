@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2ukre4us0xo3"]
+[gd_scene load_steps=4 format=3 uid="uid://b2ukre4us0xo3"]
 
 [ext_resource type="PackedScene" uid="uid://dis8x2npkij4q" path="res://Resources/Component_Base/Component.tscn" id="1_vecjj"]
 [ext_resource type="Script" path="res://Main_Scene/Rover_View/World/Rover/Power_Supply/Power_Supply.cs" id="2_jkq8w"]
+[ext_resource type="Script" path="res://Main_Scene/Rover_View/World/Rover/Power_Supply/Draw_Power_Supply.cs" id="3_y3310"]
 
 [node name="Power_Supply" instance=ExtResource("1_vecjj")]
 script = ExtResource("2_jkq8w")
+
+[node name="Draw_Power_Supply" type="Node2D" parent="." index="3"]
+script = ExtResource("3_y3310")

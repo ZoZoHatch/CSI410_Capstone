@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c55wpedmw34fc"]
+
+[ext_resource type="Script" path="res://Main_Scene/Location_Display/Location_Display.cs" id="1_mjw40"]
+
+[node name="Location_Display" type="PanelContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_mjw40")
+
+[node name="Location_Label" type="Label" parent="."]
+layout_mode = 2
+text = "0,0"
+horizontal_alignment = 1

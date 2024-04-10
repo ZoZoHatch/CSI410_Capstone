@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cewbi8u7fqu3w"]
 
-[ext_resource type="PackedScene" uid="uid://ci2qoam8s0q7d" path="res://Main_Scene/Rover_View/World/Rover/Chasis/Chasis.tscn" id="1_5tdv8"]
+[ext_resource type="PackedScene" uid="uid://ci2qoam8s0q7d" path="res://Main_Scene/Rover_View/World/Rover/Chassis/Chassis.tscn" id="1_5tdv8"]
 [ext_resource type="Script" path="res://Main_Scene/Rover_View/World/Rover/Rover.cs" id="1_ho770"]
 [ext_resource type="PackedScene" uid="uid://fi02t4ijwdlv" path="res://Main_Scene/Rover_View/World/Rover/Processor/Processor.tscn" id="1_q4aqe"]
 [ext_resource type="PackedScene" uid="uid://b2ukre4us0xo3" path="res://Main_Scene/Rover_View/World/Rover/Power_Supply/Power_Supply.tscn" id="3_u5m8m"]
@@ -11,9 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bfmikxnp63v2f" path="res://Main_Scene/Rover_View/World/Rover/Collector/Collector.tscn" id="8_2komy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo8ee"]
-size = Vector2(48, 32)
+size = Vector2(40, 24)
 
 [node name="Rover" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_ho770")
 
 [node name="Power_Supply" parent="." instance=ExtResource("3_u5m8m")]
@@ -24,7 +25,7 @@ unique_name_in_owner = true
 [node name="Motor" parent="." instance=ExtResource("4_ejajl")]
 
 [node name="Arm" parent="." instance=ExtResource("5_kswh6")]
-position = Vector2(23, 11)
+position = Vector2(20, 11)
 
 [node name="GPS" parent="." instance=ExtResource("5_ygo3o")]
 
@@ -32,10 +33,7 @@ position = Vector2(23, 11)
 
 [node name="Collector" parent="." instance=ExtResource("8_2komy")]
 
-[node name="Chasis" parent="." instance=ExtResource("1_5tdv8")]
+[node name="Chassis" parent="." instance=ExtResource("1_5tdv8")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lo8ee")
-
-[node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D"]
-polygon = PackedVector2Array(24, 16, 24, -16, -24, -16, -24, 16)

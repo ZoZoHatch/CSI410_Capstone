@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3pxgddyn3m7m"]
+[gd_scene load_steps=9 format=3 uid="uid://c3pxgddyn3m7m"]
 
 [ext_resource type="Script" path="res://Main_Scene/Rover_View/World/Rover/Arm/Arm.cs" id="2_5qvde"]
 [ext_resource type="PackedScene" uid="uid://c01t3b6ocaobt" path="res://Resources/File_Reader/File_Reader.tscn" id="2_j4dcp"]
 [ext_resource type="PackedScene" uid="uid://ro4yxcg2l1f1" path="res://Resources/Component_Base/Energy_Resource/Energy_Resource.tscn" id="3_mvgs0"]
+[ext_resource type="Script" path="res://Main_Scene/Rover_View/World/Rover/Arm/Draw_Circle.cs" id="4_ry8hn"]
+[ext_resource type="Script" path="res://Main_Scene/Rover_View/World/Rover/Arm/Draw_Arm.cs" id="5_m20mr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5y0t3"]
 size = Vector2(4, 24)
@@ -32,8 +34,9 @@ gravity_scale = 0.0
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_5y0t3")
 
-[node name="Polygon2D" type="Polygon2D" parent="Rover_Joint/UpperArm_CollisionShape2D"]
-polygon = PackedVector2Array(-2, 14, 2, 14, 2, -12, -2, -12)
+[node name="Draw_Arm" type="Node2D" parent="Rover_Joint"]
+script = ExtResource("5_m20mr")
+flt_Boarder_Thickness = 1.5
 
 [node name="Center_Joint" type="RigidBody2D" parent="Rover_Joint"]
 unique_name_in_owner = true
@@ -46,8 +49,11 @@ gravity_scale = 0.0
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_c1d0r")
 
-[node name="Polygon2D" type="Polygon2D" parent="Rover_Joint/Center_Joint/ForeArm_CollisionShape2D"]
-polygon = PackedVector2Array(-2, 14, 2, 14, 2, -12, -2, -12)
+[node name="Draw_Arm" type="Node2D" parent="Rover_Joint/Center_Joint"]
+script = ExtResource("5_m20mr")
+flt_Height = 22.0
+flt_Width = 4.0
+flt_Radius = 4.0
 
 [node name="Collector_Joint" type="RigidBody2D" parent="Rover_Joint/Center_Joint"]
 unique_name_in_owner = true
@@ -59,6 +65,10 @@ gravity_scale = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rover_Joint/Center_Joint/Collector_Joint"]
 shape = SubResource("RectangleShape2D_rdklr")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Draw_Circle" type="Node2D" parent="Rover_Joint/Center_Joint/Collector_Joint"]
+script = ExtResource("4_ry8hn")
+flt_Radius = 3.0
 
 [node name="Collector_Anchor" type="Node2D" parent="Rover_Joint/Center_Joint/Collector_Joint"]
 unique_name_in_owner = true

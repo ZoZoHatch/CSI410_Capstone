@@ -9,20 +9,129 @@
 unique_name_in_owner = true
 z_index = -1
 
+[node name="West_Border" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(-378, -5)
+
+[node name="CollisionPolygon2D" parent="West_Border" index="0"]
+polygon = PackedVector2Array(-32, -462, 22, -459, 23, 509, -36, 522)
+
+[node name="East_Border" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(135, 5)
+
+[node name="CollisionPolygon2D" parent="East_Border" index="0"]
+polygon = PackedVector2Array(33, -463, -28, -464, -31, 494, 39, 496)
+
+[node name="South_Border" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(0, 221)
+rotation = 1.5708
+
+[node name="CollisionPolygon2D" parent="South_Border" index="0"]
+polygon = PackedVector2Array(51, -491, -21, -491, -24, 26, -22, 469, 38, 460)
+
+[node name="North_Border" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(-3, -319)
+rotation = -1.5708
+
+[node name="CollisionPolygon2D" parent="North_Border" index="0"]
+polygon = PackedVector2Array(22, -469, -32, -464, -34, 502, 22, 502)
+
+[node name="Unknown_Rock" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(-213, -211)
+
+[node name="CollisionPolygon2D" parent="Unknown_Rock" index="0"]
+position = Vector2(0, -1)
+rotation = 0.973894
+polygon = PackedVector2Array(-12.342, -15.6421, 2.28046, -6.91372, 17.5612, -9.8287, 8.5679, 3.40459, 10.6237, 21.7287, -1.75043, 9.69207, -20.6366, 12.5749, -9.42703, -0.361275)
+
+[node name="Rock_Data" parent="Unknown_Rock" index="1"]
+type = 0
+
 [node name="Obstacle" parent="." instance=ExtResource("2_5e8n6")]
-position = Vector2(179, 147)
+position = Vector2(56, -135)
 
 [node name="CollisionPolygon2D" parent="Obstacle" index="0"]
-position = Vector2(28, -165)
-polygon = PackedVector2Array(-71, -39, 47, -161, 68, 94, -152, 170)
+polygon = PackedVector2Array(-91, -48, -29, -72, 62, 41, 68, 104, 7, 80, -30, 15)
 
 [node name="Obstacle2" parent="." instance=ExtResource("2_5e8n6")]
-position = Vector2(350, 186)
+position = Vector2(-282, 104)
 
 [node name="CollisionPolygon2D" parent="Obstacle2" index="0"]
-position = Vector2(-480, -133)
-scale = Vector2(0.901786, 1)
-polygon = PackedVector2Array(-71, -103, 45, -206, 36, -27, 113, 84, 98, 136, -76, 105)
+polygon = PackedVector2Array(-84, -94, -75, -207, 12, -38, 141, 107, 27, 107, -37, 14)
 
+[node name="Obstacle3" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(27, 135)
+
+[node name="CollisionPolygon2D" parent="Obstacle3" index="0"]
+position = Vector2(-1, 1)
+rotation = 0.973894
+polygon = PackedVector2Array(-35.6856, -104.051, 4.80098, -103.136, 30, -35, 67, 60, 4, 86, -31, 16)
+
+[node name="Obstacle4" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(-315, -239)
+
+[node name="CollisionPolygon2D" parent="Obstacle4" index="0"]
+rotation = 0.973894
+polygon = PackedVector2Array(-9.62067, -103.264, 20.7163, -83.856, 22.8529, -12.2778, 59.0923, 60.7133, 31.486, 108.451, -44.4532, 8.47992)
+
+[node name="Obstacle5" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(-293, -86)
+
+[node name="CollisionPolygon2D" parent="Obstacle5" index="0"]
+position = Vector2(0, -1)
+rotation = 0.973894
+polygon = PackedVector2Array(-17.6337, -13.1929, 19.4721, -37.5478, 31.1879, -13.8678, 8.47162, 14.2208, -48.452, 21.4803, -57.3253, -9.94049)
+
+[node name="Obstacle9" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(-113, 157)
+
+[node name="CollisionPolygon2D" parent="Obstacle9" index="0"]
+position = Vector2(0, -1)
+rotation = 0.973894
+polygon = PackedVector2Array(-15.9154, -19.2796, 16.0996, -32.5853, 45.0795, -16.5178, 18.6295, 25.9604, -32.7696, 35.7653, -30.8587, 8.04619)
+
+[node name="Obstacle10" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(-253, 16)
+
+[node name="CollisionPolygon2D" parent="Obstacle10" index="0"]
+position = Vector2(0, -1)
+rotation = 0.973894
+polygon = PackedVector2Array(-15.9154, -19.2796, 24.6033, -21.9699, 34.5687, 11.4021, 9.90116, 40.5828, -12.3979, 21.8012, -30.8587, 8.04619)
+
+[node name="Obstacle6" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(116, -5)
+
+[node name="CollisionPolygon2D" parent="Obstacle6" index="0"]
+position = Vector2(0, -1)
+rotation = 0.973894
+polygon = PackedVector2Array(-49.5927, -37.3304, 15.08, -11.515, 46.0836, 26.4821, 19.8582, 43.7224, -9.29042, 15.4495, -53.222, -3.52466)
+
+[node name="Obstacle7" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(-84, -124)
+
+[node name="CollisionPolygon2D" parent="Obstacle7" index="0"]
+rotation = 0.973894
+polygon = PackedVector2Array(20.7805, -91.0668, 17.5933, -13.4341, 40.7681, 62.7691, 12.5273, 88.3123, -23.3187, 2.2887, -21.5207, -75.079)
+
+[node name="Obstacle8" parent="." instance=ExtResource("2_5e8n6")]
+position = Vector2(-103, -240)
+rotation = -4.77871
+
+[node name="CollisionPolygon2D" parent="Obstacle8" index="0"]
+rotation = 0.973894
+polygon = PackedVector2Array(20.7805, -91.0668, 22.9758, 1.45341, 29.6734, 26.9905, 49.5461, 43.7857, 51.1709, 62.8214, 40.1877, 72.0066, 40.1379, 94.8101, 12.5273, 88.3123, -23.3187, 2.2887, -34.1785, -92.6921)
+
+[editable path="West_Border"]
+[editable path="East_Border"]
+[editable path="South_Border"]
+[editable path="North_Border"]
+[editable path="Unknown_Rock"]
 [editable path="Obstacle"]
 [editable path="Obstacle2"]
+[editable path="Obstacle3"]
+[editable path="Obstacle4"]
+[editable path="Obstacle5"]
+[editable path="Obstacle9"]
+[editable path="Obstacle10"]
+[editable path="Obstacle6"]
+[editable path="Obstacle7"]
+[editable path="Obstacle8"]

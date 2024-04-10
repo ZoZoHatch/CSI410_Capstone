@@ -13,7 +13,13 @@ config_version=5
 config/name="ChamplainCapstoneProject"
 run/main_scene="res://Main_Scene/Main_Scene.tscn"
 config/features=PackedStringArray("4.2", "C#")
+boot_splash/bg_color=Color(0.101961, 0.101961, 0.101961, 1)
 config/icon="res://icon.png"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
 
 [dotnet]
 
@@ -24,7 +30,10 @@ project/assembly_name="ChamplainCapstoneProject"
 folder_colors={
 "res://GUI_Theme/": "green",
 "res://Main_Scene/": "blue",
+"res://Main_Scene/Direction_Display/": "green",
+"res://Main_Scene/Integrity_Display/": "green",
 "res://Main_Scene/Key_Pad/": "green",
+"res://Main_Scene/Location_Display/": "green",
 "res://Main_Scene/Mini_Map/": "green",
 "res://Main_Scene/Mini_Map/Rover_Marker/": "blue",
 "res://Main_Scene/Mini_Map/Scanner_Marker/": "blue",

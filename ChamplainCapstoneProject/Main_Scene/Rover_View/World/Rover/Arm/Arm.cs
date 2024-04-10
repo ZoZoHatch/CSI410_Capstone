@@ -38,6 +38,9 @@ public partial class Arm : Component
 	[Signal]	// emitted whenever the arm finishes a movement command
 	public delegate void ArmMovedEventHandler();	
 
+	[Signal]	// emitted when the command que is emptied
+	public delegate void ArmFinishedMovingEventHandler();
+
 	[Signal]	// emitted if a joint is at the min or max angle
 	public delegate void JointAtContraintBoundsEventHandler(string joint, bool is_min);
 
@@ -163,7 +166,8 @@ public partial class Arm : Component
 		enm_Current_Joint = Enum_Joints.INVALID_JOINT;	// reset the current active joint
 
 		if(que_Commands.Count == 0)
-		{			
+		{	
+			EmitSignal(SignalName.ArmFinishedMoving);
 			return;	// No Commands left to process, so return
 		}
 

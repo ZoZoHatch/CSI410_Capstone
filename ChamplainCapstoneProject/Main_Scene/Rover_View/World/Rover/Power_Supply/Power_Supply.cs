@@ -32,7 +32,7 @@ public partial class Power_Supply : Component
 
 		Subscribe_To_Events();
 		
-		Pre_Allocate_Energy();
+		// Pre_Allocate_Energy();
 	}
 	// end _Ready()
 

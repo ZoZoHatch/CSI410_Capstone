@@ -1,62 +1,110 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0ob7w6mt1rtg"]
+[gd_scene load_steps=10 format=3 uid="uid://d0ob7w6mt1rtg"]
 
 [ext_resource type="PackedScene" uid="uid://b1c6lkmw5gk0k" path="res://Main_Scene/Key_Pad/Key_Pad.tscn" id="1_28fv0"]
 [ext_resource type="Theme" uid="uid://qb3ul57eboe6" path="res://GUI_Theme/UI_Theme.tres" id="1_u1p28"]
 [ext_resource type="PackedScene" uid="uid://5piirwdidlja" path="res://Main_Scene/Output_Terminal/Output_Terminal.tscn" id="2_m1nl2"]
 [ext_resource type="PackedScene" uid="uid://cw7okiy0f4kbt" path="res://Main_Scene/Power_Levels/Power_Levels.tscn" id="3_bxbm8"]
 [ext_resource type="PackedScene" uid="uid://c8j215j32ch2t" path="res://Main_Scene/Rover_View/Rover_View.tscn" id="5_lmcav"]
-[ext_resource type="PackedScene" uid="uid://brnkeavpn5m4c" path="res://Main_Scene/Mini_Map/Mini_Map.tscn" id="5_r7vxo"]
+[ext_resource type="PackedScene" uid="uid://o61dgsrn4lmx" path="res://Main_Scene/Mini_Map/Mini_Map.tscn" id="5_r7vxo"]
+[ext_resource type="PackedScene" uid="uid://c55wpedmw34fc" path="res://Main_Scene/Location_Display/Location_Display.tscn" id="5_tftfj"]
+[ext_resource type="PackedScene" uid="uid://c06onavuen5yf" path="res://Main_Scene/Direction_Display/Direction_Display.tscn" id="6_5vfk0"]
+[ext_resource type="PackedScene" uid="uid://dv2071rb7cbt4" path="res://Main_Scene/Integrity_Display/Integrity_Display.tscn" id="7_dmuae"]
 
 [node name="Main_Scene" type="Node2D"]
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+offset_right = 960.0
+offset_bottom = 540.0
+theme = ExtResource("1_u1p28")
+ratio = 1.7778
+stretch_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer"]
+layout_mode = 2
 theme = ExtResource("1_u1p28")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = -1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Power_Levels" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" instance=ExtResource("3_bxbm8")]
-unique_name_in_owner = true
+[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-metadata/_edit_use_anchors_ = true
+theme_override_constants/separation = 0
 
-[node name="Rover_View" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" instance=ExtResource("5_lmcav")]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-metadata/_edit_use_anchors_ = true
+theme_override_constants/separation = 0
 
-[node name="Output_Terminal" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("2_m1nl2")]
+[node name="HBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title_Display" type="PanelContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Title_Label" type="Label" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/HBoxContainer/Title_Display"]
+layout_mode = 2
+text = "Terminal_Rover_v01"
+horizontal_alignment = 1
+
+[node name="Power_Levels" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/HBoxContainer" instance=ExtResource("3_bxbm8")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Mini_Map" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("5_r7vxo")]
+[node name="Rover_View" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer" instance=ExtResource("5_lmcav")]
 unique_name_in_owner = true
 layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Key_Pad" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_28fv0")]
+[node name="Map" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer" instance=ExtResource("5_r7vxo")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Display_Display" type="PanelContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Display_Label" type="Label" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer/Display_Display"]
+layout_mode = 2
+text = "Info"
+horizontal_alignment = 1
+
+[node name="Location_Display" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" instance=ExtResource("5_tftfj")]
+layout_mode = 2
+size_flags_horizontal = 1
+
+[node name="Direction_Display" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" instance=ExtResource("6_5vfk0")]
+layout_mode = 2
+
+[node name="Integrity_Display" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer/VBoxContainer" instance=ExtResource("7_dmuae")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Output_Terminal" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer2" instance=ExtResource("2_m1nl2")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Key_Pad" parent="AspectRatioContainer/PanelContainer/MarginContainer/VBoxContainer2/HBoxContainer2/VBoxContainer" instance=ExtResource("1_28fv0")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

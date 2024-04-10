@@ -14,7 +14,7 @@ Scanner takes commands one(1) character at a time and discards any other numbers
     at the time of the scan.
  
 3 -> Toggle automatically scanning when the Rover moves.
-4 -> Toggle automatically scanning the Rover when the arm moves.
+4 -> Toggle automatically scanning the Rover a component changes position.
  
 Each scan environment scan takes 5 seconds to make.
 The Scanner scans in the counter clockwise direction.

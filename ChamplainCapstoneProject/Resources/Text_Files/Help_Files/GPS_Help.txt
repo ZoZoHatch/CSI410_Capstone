@@ -13,12 +13,12 @@ GPS only takes one number a time, and discards any extra numbers.
 2 -> Print Rover direction to terminal.
 3 -> Print both location and direction.
 4 -> Toggle automatically printing location
-		when the rover moves.
+        when the rover moves.
 5 -> Toggle automatically printing direction
-	    when the rover moves.
+        when the rover moves.
 6 -> Toggle printing when the rover is finished moving
 7 -> Toggle printing to the console.
-		(GPS will still update the Mini-Map)
+        (GPS will still update the Mini-Map)
  
 The GPS's precision is determined by how much power it has
     More power == More precision.

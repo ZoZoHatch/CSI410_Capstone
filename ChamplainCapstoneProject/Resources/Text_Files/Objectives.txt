@@ -1,0 +1,9 @@
+==========
+Objectives
+==========
+ 
+1. -> Start the Rover by allocating power to the Processor.
+ 
+2. -> Use the Collector on the star-shaped rock in the North_West.
+ 
+3. -> Avoid damage to the Rover from collisions.

@@ -30,3 +30,4 @@ once that requirement is met it works optimally.
  
 Arm doesn't benifit from increasing the power
 beyond the minimum.
+ 

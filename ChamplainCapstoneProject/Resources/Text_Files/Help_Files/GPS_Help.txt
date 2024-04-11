@@ -22,3 +22,4 @@ GPS only takes one number a time, and discards any extra numbers.
  
 The GPS's precision is determined by how much power it has
     More power == More precision.
+ 

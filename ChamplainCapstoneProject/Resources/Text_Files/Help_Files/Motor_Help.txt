@@ -16,9 +16,10 @@ Motor processes commands in one(1) character chunks.
              /   |   \
     bck left     |     bck right
               backward
-
+ 
 ./5 -> break/wait
  
 Commands are added to a queue and processed sequentially.
  
 Allocating more power to the rover increases the speed at which it moves.
+ 

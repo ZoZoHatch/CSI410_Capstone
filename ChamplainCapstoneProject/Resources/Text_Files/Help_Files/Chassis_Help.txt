@@ -1,9 +1,9 @@
 [Name of Component]
 Chassis
-
+ 
 [Description]
 The Chassis component protects the Rover from impacts.
-
+ 
 [Functionality]
 Chassis's only function is to the potect the Rover's other components.
  

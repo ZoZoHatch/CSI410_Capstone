@@ -39,11 +39,11 @@ public partial class Rover_Marker : Polygon2D
 		base._PhysicsProcess(delta);
 		
 		if (!tmr.IsStopped())
-		{
-			flt_Scan_Angle += flt_Anim_Speed * int_Anim_Direction * (float)delta;
+		{			
 			vec2_Draw_Dir = new Vector2(Mathf.Cos(flt_Scan_Angle), 
 										Mathf.Sin(flt_Scan_Angle));			
 			vec2_Draw_Dir *= int_Anim_Size;
+			flt_Scan_Angle += flt_Anim_Speed * int_Anim_Direction * (float)delta;
 			QueueRedraw();
 		}
 	}
@@ -59,8 +59,25 @@ public partial class Rover_Marker : Polygon2D
 			Color,
 			int_Line_Width);		
 
+		// Should draw 8 different lines in a star pattern
+		// Using this to try and find a wierd bug		
+		// DrawLine(Vector2.Zero, Vector2.Up * 1000, Color, int_Line_Width);
+		// DrawLine(Vector2.Zero, Vector2.Down * 1000, Color, int_Line_Width);
+		// DrawLine(Vector2.Zero, Vector2.Left * 1000, Color, int_Line_Width);
+		// DrawLine(Vector2.Zero, Vector2.Right * 1000, Color, int_Line_Width);
+		// DrawLine(Vector2.Zero, (Vector2.Up + Vector2.Left) * 1000, Color, int_Line_Width);
+		// DrawLine(Vector2.Zero, (Vector2.Up + Vector2.Right) * 1000, Color, int_Line_Width);
+		// DrawLine(Vector2.Zero, (Vector2.Down + Vector2.Left) * 1000, Color, int_Line_Width);
+		// DrawLine(Vector2.Zero, (Vector2.Down + Vector2.Right) * 1000, Color, int_Line_Width);
+		// Figured it out
+		// Draw commands are relative to the current node, including the node's rotaion
+		// I was trying to compensate for the rotation, and needlessly adding more rotation
+		// adding unexpected results.
+		// TnT
+		// This bug had been driving me crazy for months </3
+
 		if (!tmr.IsStopped())
-		{
+		{				
 			DrawLine(Vector2.Zero, vec2_Draw_Dir, Color, int_Line_Width);
 		}		
 	}
@@ -76,6 +93,7 @@ public partial class Rover_Marker : Polygon2D
 		s.ScanStarted += (float dur, int dir, int rang) => Animate_Scan(dur, dir, rang);
 
 		tmr.Timeout += () => QueueRedraw();
+		//tmr.Timeout += () => GD.Print($"{vec2_Draw_Dir.Angle() * 180/Mathf.Pi}, final direction");
 	}
 	// end Subscribe_To_Events()
 	
@@ -116,8 +134,8 @@ public partial class Rover_Marker : Polygon2D
 		int_Anim_Size = range;
 		flt_Anim_Speed = Mathf.Tau / dur;
 		int_Anim_Direction = dir;
-		flt_Scan_Angle = Rotation;
-		
+		flt_Scan_Angle = 0;		
+
 		tmr.Start(dur);
 	}
 	// end Animate_Scan()

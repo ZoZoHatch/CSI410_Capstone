@@ -20,3 +20,4 @@ Each scan environment scan takes 5 seconds to make.
 The Scanner scans in the counter clockwise direction.
  
 Increasing the Scanner's energy increases the detail of each scan.
+ 

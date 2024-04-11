@@ -43,6 +43,9 @@ position = Vector2(0, -1)
 rotation = 0.973894
 polygon = PackedVector2Array(-12.342, -15.6421, 2.28046, -6.91372, 17.5612, -9.8287, 8.5679, 3.40459, 10.6237, 21.7287, -1.75043, 9.69207, -20.6366, 12.5749, -9.42703, -0.361275)
 
+[node name="Stripes_Polygon2D" parent="Unknown_Rock/CollisionPolygon2D" index="1"]
+scale = Vector2(0.8, 0.8)
+
 [node name="Rock_Data" parent="Unknown_Rock" index="1"]
 type = 0
 
@@ -71,7 +74,7 @@ position = Vector2(-315, -239)
 
 [node name="CollisionPolygon2D" parent="Obstacle4" index="0"]
 rotation = 0.973894
-polygon = PackedVector2Array(-9.62067, -103.264, 20.7163, -83.856, 22.8529, -12.2778, 59.0923, 60.7133, 31.486, 108.451, -44.4532, 8.47992)
+polygon = PackedVector2Array(-20.1957, -68.1332, 14.0438, -50.9095, 32.1516, 2.50504, 59.0923, 60.7133, 31.486, 108.451, -44.4532, 8.47992)
 
 [node name="Obstacle5" parent="." instance=ExtResource("2_5e8n6")]
 position = Vector2(-293, -86)
@@ -110,7 +113,7 @@ position = Vector2(-84, -124)
 
 [node name="CollisionPolygon2D" parent="Obstacle7" index="0"]
 rotation = 0.973894
-polygon = PackedVector2Array(20.7805, -91.0668, 17.5933, -13.4341, 40.7681, 62.7691, 12.5273, 88.3123, -23.3187, 2.2887, -21.5207, -75.079)
+polygon = PackedVector2Array(-12.5915, -81.1015, 26.0246, -25.8403, 40.7681, 62.7691, 12.5273, 88.3123, -23.3187, 2.2887, -24.4274, -60.1274)
 
 [node name="Obstacle8" parent="." instance=ExtResource("2_5e8n6")]
 position = Vector2(-103, -240)
@@ -118,7 +121,7 @@ rotation = -4.77871
 
 [node name="CollisionPolygon2D" parent="Obstacle8" index="0"]
 rotation = 0.973894
-polygon = PackedVector2Array(20.7805, -91.0668, 22.9758, 1.45341, 29.6734, 26.9905, 49.5461, 43.7857, 51.1709, 62.8214, 40.1877, 72.0066, 40.1379, 94.8101, 12.5273, 88.3123, -23.3187, 2.2887, -34.1785, -92.6921)
+polygon = PackedVector2Array(18.7913, -90.647, 42.7515, -57.9682, 34.2549, -22.7289, 36.2734, 16.9186, 51.2945, 46.4206, 40.1877, 72.0066, 40.1379, 94.8101, 12.5273, 88.3123, -23.3187, 2.2887, -34.1785, -92.6921)
 
 [editable path="West_Border"]
 [editable path="East_Border"]

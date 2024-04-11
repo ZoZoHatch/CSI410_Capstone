@@ -5,7 +5,7 @@ using System;
 
 public partial class Chassis : Component
 {
-	float flt_Max_Health = 100.0f;
+	float flt_Max_Health = 50.0f;
 	float flt_Current_Health;
 
 	[Signal]

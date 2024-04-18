@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="ChamplainCapstoneProject"
+config/name="Terminal_Rover"
+config/description="A game created by Lorenzo Zimmerer
+as part of an undergraduate comp-sci capstone project
+for Champlain College."
+config/version="v01"
 run/main_scene="res://Main_Scene/Main_Scene.tscn"
 config/features=PackedStringArray("4.2", "C#")
 boot_splash/bg_color=Color(0.101961, 0.101961, 0.101961, 1)
+boot_splash/show_image=false
 config/icon="res://icon.png"
 
 [display]

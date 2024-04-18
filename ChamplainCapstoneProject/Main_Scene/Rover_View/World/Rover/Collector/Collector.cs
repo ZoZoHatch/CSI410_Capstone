@@ -128,6 +128,10 @@ public partial class Collector : Component
 					|| bl_Check_Distance_Next_Tick
 					|| bl_Take_Sample_Next_Tick)
 			{
+				bl_Check_Angle_Next_Tick = false;
+				bl_Check_Distance_Next_Tick = false;
+				bl_Take_Sample_Next_Tick = false;
+
 				rvr.Send_Message(str_Sender, $"{Name} isn't close enough to a surface to do that \n" +
 					$"Position {Name} using the Arm");
 			}			
@@ -251,12 +255,7 @@ public partial class Collector : Component
 				$"{Name}'s angle with the surface is: {coll_angle} degrees");			
 		}
 
-		if(coll_angle > 90f - angle_range)
-		{
-			return true;
-		}
-
-		return false;
+		return coll_angle > 90f - angle_range;		
 	}
 	// end Check_Angle()
 
